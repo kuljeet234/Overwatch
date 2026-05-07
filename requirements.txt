@@ -1,7 +1,13 @@
+# face-recognition 1.3.0 (released 2020-02-20) is the only release;
+# 2.x has never shipped, so pinning to that exact version is
+# accurate. It links against dlib, which is built from source unless
+# a wheel matches the local Python ABI — Python 3.10 or 3.11 give
+# the smoothest experience.
 opencv-python>=4.8,<5.0
-face-recognition>=1.3,<2.0
-numpy>=1.24,<3.0
+numpy>=1.24,<2.0
+cmake>=3.27
+face-recognition==1.3.0
 
-# face-recognition pulls dlib, which needs CMake and a C++ toolchain at build time:
-#   macOS:  brew install cmake
-#   Ubuntu: sudo apt-get install build-essential cmake
+# Even with cmake on PyPI, dlib's build needs a C/C++ toolchain:
+#   macOS:  xcode-select --install
+#   Ubuntu: sudo apt-get install build-essential
